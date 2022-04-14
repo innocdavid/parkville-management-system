@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/CSS/layout.css')
+    link(rel="stylesheet", href="/CSS/register.css")
+    link(rel="stylesheet", href="/CSS/error.css")
+    link(rel="stylesheet", href="/CSS/login.css")
+    link(href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet')
+  body
+    nav.navbar.navbar-light.bg-dark
+      .container-fluid
+        a.navbar-brand(href='#') Parkville
+
+    .container
+      != messages('message', locals)
+      if errors   
+        each error, i in errors 
+          div(class="alert alert-danger") #{error.msg}
+      block content
+    br
+    hr
+    footer
+      #footer-content 
+        p Parkville Management System
+      #footer-content 
+        p Copyright &copy; 2022
+      #footer-content 
+        a.form-social-icon(href='#')
+          i.bx.bxl-facebook
+        a.form-social-icon(href='#')
+          i.bx.bxl-google
+        a.form-social-icon(href='#')
+          i.bx.bxl-instagram
+           
+    script(src='/bower_components/jquery/dist/jquery.js')  
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/main.js')

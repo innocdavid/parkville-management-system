@@ -1,0 +1,55 @@
+html 
+    head 
+        title #{title}
+    body
+        -const container = {'display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'flex-direction': 'column'}
+        -const titleStyle = {'display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'flex-direction': 'column', 'line-height': '4px'}
+        -const content = {'display': 'flex', 'flex-direction': 'column', 'background-color': '#ccc', 'padding': '1rem', 'border-radius': '.8rem', 'box-shadow': '0px 1rem 2rem rgba(0, 0, 0, 0.18'}
+        -const card = {'display': 'flex', 'flex-direction': 'row', 'line-height': '4px'}
+        -const para = {'padding-right': '.6rem', 'font-weight': '500'}
+        .main(style=container)
+            .title(style=titleStyle) 
+                h1 Receipt 
+                h2 Customer Details 
+            .content(style=content)
+                //customer name
+                .card(style=card)
+                    p(style=para) Name:
+                    p(style=para)=details.firstname 
+                    p(style=para)=details.lastname
+                //customer telephone
+                .card(style=card)
+                    p(style=para) Telephone:
+                    p(style=para)=details.telephone
+                //customer car model
+                .card(style=card)
+                    p(style=para) Car Model:
+                    p(style=para)=details.carmodel
+                //customer pate number
+                .card(style=card) 
+                    p(style=para) Plate Number: 
+                    p(style=para)=details.platenumber 
+                //customer arrival time
+                .card(style=card)
+                    p(style=para) Checkin Time: 
+                    p(style=para)=details.checkintime 
+                //customer parking duration
+                .card(style=card)
+                    p(style=para) Tire Fault: 
+                    p(style=para)=details.tirefault
+                //customer parking cost
+                .card(style=card)
+                    p(style=para) Repair Status:
+                    p(style=para)=details.repairstatus 
+                //customer parking status
+                .card(style=card)
+                    p(style=para) Repair Cost:
+                    p(style=para)=details.cost
+                //mechanic
+                .card(style=card)
+                    p(style=para) Mechanic:
+                    p(style=parpa)=details.mechanic
+                //customer checkout time
+                .card(style=card) 
+                    p(style=para) Checkout Time:
+                    p(style=para)=details.checkouttime

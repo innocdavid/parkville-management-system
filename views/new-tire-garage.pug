@@ -1,0 +1,95 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+  title #{title}
+
+-const container = {'width': '100%', 'height': '97vh','display': 'flex', 'align-items': 'center', 'justify-content': 'center', 'flex-direction': 'column', 'margin': '0', 'background-color': 'rgb(250, 246, 246)'}
+-const titleStyle = {'font-size': '1.6rem', 'position': 'relative', 'font-weight': '600px'}
+-const content = {'background-color': '#fff', 'display': 'flex', 'flex-direction': 'column', 'justify-content': 'space-between', 'flex-wrap': 'wrap', 'align-items': 'center', 'margin': '1rem 0 .8rem 0', 'padding': '1rem', 'width': '42%', 'border-radius': '1rem', 'box-shadow': '0 5px 10px rgba(0, 0, 0, 0.15)'}
+-const card = {'margin-bottom': '.4rem', 'width': 'calc(100%/2 - 15px)', 'display': 'flex', 'flex-direction': 'column'}
+-const details = {'display': 'block', 'font-weight': '500', 'margin-bottom': '5px'}
+-const user = {'display': 'flex', 'flex-wrap': 'wrap', 'justify-content': 'space-between', 'margin': '.6rem 0 .5rem 0'}
+-const box = {'height': '28px', 'width': '100%', 'outline': 'none', 'font-size': '16px', 'border-radius': '5px', 'border': '1px solid #71b7c6', 'padding-left': '12px'}
+.container(style=container)
+
+  .title(style=titleStyle) Tire Repair Information
+
+  .content(style=content)
+    // ITEM REGISTRATION FORM
+    form(method='POST', action='/new-tire', autocomplete='off')
+        
+      .user-details(style=user)
+        // first name
+        .input-box(style=card)
+          span(style=details) First Name
+          input(type='text', placeholder='Enter First Name', name='firstname', style=box)
+        // last name
+        .input-box(style=card)
+          span(style=details) Last Name
+          input(type='text', placeholder='Enter Last Name', name='lastname', style=box)
+    
+      .user-details(style=user)
+        //phone number
+        .input-box(style=card)
+          span(style=details) Phone Number
+          input(type='text', placeholder='Enter Telephone', name='telephone', style=box)
+        // plate number
+        .input-box(style=card)
+          span(style=details) Plate Number
+          input(type='telephone', placeholder='Enter Plate Number', name='platenumber', style=box)
+      
+      .user-details(style=user)
+        // car model
+        .input-box(style=card)
+          span(style=details) Car Model
+          input(type='text', placeholder='Enter Car Model', name='carmodel', style=box)
+        // Checkin Time
+        .input-box(style=card)
+          span(style=details) Checkin Time
+          input(type='datetime-local', name='checkintime', style=box)
+        
+      .user-details(style=user) 
+        // tire fault
+        .input-box(style=card) 
+          span(style=details) Tire Fault
+          select(name='tirefault', style=box) 
+            option(disabled selected) Select Tire Fault 
+            option(value='Punture') Punture 
+            option(value='Damage to Valve') Damage to Valve
+            option(value='Tire Bead Leaks') Tire Bead Leaks 
+            option(value='Tire and Rim Separation') Tire and Rim Separation 
+            option(value='Old') Old Tire
+        // tire repair status
+        .input-box(style=card)
+          span(style=details) Tire Repair Status
+          select(style=box, name='repairstatus')
+            option(value='Pending') Pending 
+            option(value='Cleared') Cleared 
+        
+      .user-details(style=user)
+        // cost
+        .input-box(style=card)
+          span(style=details) Cost
+          input(type='text', placeholder='Enter Cost', name='cost', style=box)
+        // mechanic
+        .input-box(style=card) 
+          span(style=details) Mechanic
+          select(name='mechanic', style=box) 
+            option(disabled selected) Select Mechanic 
+            option(value='Fabrice Frankie') Fabrice Frankie 
+            option(value='Cirilo Thomas') Cirilo Thomas
+            option(value='Julius Joseph') Tire Bead Leaks 
+
+      .user-details(style=user)
+        .input-box(style=card)
+          .buttons
+            input(type='submit', style=box, value='Save Changes')
+        .input-box(style=card)
+          a.buttons(href='/garage')
+            input(type='button', style=box, value='Return')
+        .input-box(style=('display: none'))
+            span Checkout Time
+            input(type='datetime-local', name='checkouttime')

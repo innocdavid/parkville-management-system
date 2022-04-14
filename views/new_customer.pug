@@ -1,0 +1,70 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='CSS/newCustomer.css')
+  title add vehicle
+.container
+  .title Customer Registration Form
+  .content
+    // ITEM REGISTRATION FORM
+    form(action='/new-customer' method='POST' autocomplete='off')
+      .user-details
+        // first Name
+        .input-box
+          span.details First Name
+          input(type='text', placeholder='Enter First Name', required='', name='firstname')
+        // last name
+        .input-box
+          span.details Last Name
+          input(type='text', placeholder='Enter Last Name', required='', name='lastname')
+        // user email
+        .input-box
+          span.details Email
+          input(type='email', placeholder='Enter Email', required='', name='email')
+        // user phone number
+        .input-box
+          span.details Phone Number
+          input(type='telephone', placeholder='Enter Telephone', required='', name='telephone')
+          // Numbar Plate
+        .input-box
+          span.details Plate Number
+          input(type='text', placeholder='Enter Plate Number', required='', name='platenumber')
+        // Car Model
+        .input-box
+          span.details Car Model
+          input(type='text', placeholder='Enter Car Model', required='', name='carmodel')
+        // Car Color
+        .input-box
+          span.details Car Color
+          input(type='text', placeholder='Enter Car Color', required='', name='carcolor')
+        .input-box
+          span.details Date
+          input(type='datetime-local', required='', name='datetime')
+        .input-box
+          span.details Parking Duration
+          select(name='duration')
+            option(disabled selected) Select Duration
+            option(value='Under 3 hours') Under 3 hours
+            option(value='Day') Day
+            option(value='Night') Night
+        .input-box
+          span.details Parking Cost
+          select(name='cost')
+            option(disabled selected) Select Cost
+            option(value='2000') 2000
+            option(value='2000') 2000
+            option(value='3000') 3000
+        .input-box
+          .buttons
+            input(type='submit' value='Register')
+        .input-box
+          a.buttons(href='/vehicle')
+            input(type='button' value='Return') 
+        select(name='parkingstatus' style=('display: none'))
+          option(value='Pending') Pending 
+          option(value='Cleared') Cleared
+        .input-box(style=('display: none'))
+          span.details Date
+          input(type='datetime-local', name='checkouttime')

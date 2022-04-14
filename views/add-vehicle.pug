@@ -1,0 +1,46 @@
+extends dashboard  
+
+block content 
+
+    main
+
+        .customer-details 
+            h2 Customer Details
+            //css styling object...
+            -const btnStyle = {'margin-bottom': '1.5rem', 'border': 'none', 'outline': 'none', 'width': '40%', 'height': '2.8rem', 'background-color': '#fff', 'font-size': '1.2rem', 'border-radius': '.5rem', 'font-weight': '600', 'color': '#7380ec', 'border': '1px solid #7380ec', 'padding': '.6rem'}
+            a(href='/new-customer')
+                input.new-customer(type='submit', value='New Customer', style=btnStyle)
+       
+        -const tableStyle = {'height': '27rem'}
+        .customer-table(style=tableStyle)    
+            table
+                thead
+                    tr
+                        th First Name
+                        th Telephone
+                        th Plate Number
+                        th Car Model
+                        th Arrival Time
+                        th Duration
+                        th Cost
+                        th Checkout Status
+                        th Action
+                //css styling objects....
+                - const buttonStyle1 = {'height': '2rem', 'display': 'inline-block', 'width': '1.9rem', 'background-color': '#7380ec', 'color': '#fff'}
+                - const buttonStyle2 = {'height': '2rem', 'width': '1.8rem', 'margin-right': '.1rem', 'color': '#fff', 'background-color': '#008000'}
+                tbody
+                    each doc in docs
+                        tr 
+                            td=doc.firstname 
+                            td=doc.telephone 
+                            td=doc.platenumber 
+                            td=doc.carmodel
+                            td=doc.datetime
+                            td=doc.duration 
+                            td=doc.cost 
+                            td=doc.parkingstatus
+                            td=div
+                                a(href='/update-customer/'+doc._id)
+                                    input(type="button", value="Edit"  style=buttonStyle2)
+                                a(href='/print/'+doc._id, target='_blank')
+                                    input(type="button", value="Print" style=buttonStyle1)                 

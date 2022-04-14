@@ -1,0 +1,52 @@
+extends dashboard 
+
+block content 
+
+    main
+        h1 Dashboard
+        .date
+            input(type='date')
+        .inner-side
+            // parking income
+            .income
+                span.material-icons-sharp directions_car
+                h3 Parking Income
+                - let total = 0
+                each doc in docs 
+                    -total += (doc.cost)
+                h1=total
+            // battery income
+            .income
+                span.material-icons-sharp battery_full
+                h3 Battery Income
+                h1 950,000
+            // tire income
+            .income
+                span.material-icons-sharp tire_repair
+                h3 Tire Repair Income
+                h1 1,000,000
+        .customer-details
+            h2 Customer Details
+        .customer-table
+            table
+                thead
+                    tr
+                        th First Name
+                        th Last Name
+                        th Email
+                        th Number Plate
+                        th Car Color
+                        th Car Model
+                        th Parking Status
+                        th Phone Number
+                tbody
+                    each doc in docs 
+                        tr 
+                            td=doc.firstname
+                            td=doc.lastname 
+                            td=doc.email 
+                            td=doc.platenumber 
+                            td=doc.carcolor 
+                            td=doc.carmodel 
+                            td=doc.duration 
+                            td=doc.telephone

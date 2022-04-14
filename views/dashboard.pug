@@ -1,0 +1,137 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+        // ===material icons cdn==
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Sharp' rel='stylesheet')
+        // style css
+        link(rel='stylesheet' href='CSS/dashboard.css')
+        //JS
+         
+    
+
+        title Dashboard
+        
+
+    body 
+        .container
+            //left section
+            // ===aside div
+            aside
+                .top
+                    .logo
+                        img(src='images/carparkinglogo.png')
+                        h1 Parkville
+                    div#close-btn.close
+                        span.material-icons-sharp close
+                .asidebar
+                    // Dashboard
+                    a.active(href='/dashboard')
+                        span.material-icons-sharp grid_view
+                        h3 Dashboard
+                    // Add Vehicle
+                    a(href='/vehicle')
+                        span.material-icons-sharp add
+                        h3 Add Vehicle
+                    // Hire a Battery
+                    a(href='/battery')
+                        span.material-icons-sharp battery_std
+                        h3 Hire Battery
+                    // Repair Tire
+                    a(href='/garage')
+                        span.material-icons-sharp tire_repair
+                        h3 Repair Tire
+                    //logout
+                    a(href='/logout')
+                        span.material-icons-sharp logout 
+                        h3 Logout
+            
+            //middle section
+            block content 
+
+                
+            //right section
+            .right
+                .top
+                    button#menuBtn.menu-btn
+                        span.material-icons-sharp menu
+                    div.theme-toggler
+                        span.material-icons-sharp.active light_mode
+                        span.material-icons-sharp dark_mode
+                    // profile
+                    .profile
+                        .info
+                            p
+                                | Hey, 
+                                b Innoc
+                            small Admin
+                        .profile-pic
+                            img(src='/images/carparkinglogo.png' alt='Photo')
+                // updates
+                .recent-updates
+                    h2 Recent Updates
+                    .updates
+                        // first update
+                        .update
+                            .profile-pic
+                                img(src='images/aprofile.png' alt='Photo')
+                            .message
+                                p
+                                    b Innoc David
+                                    |  added items
+                                small 2 minutes ago
+                        // second update
+                        .update
+                            .profile-pic
+                                img(src='images/aprofile.png' alt='Photo')
+                            .message
+                                p
+                                    b Innoc David
+                                    |  added items
+                                small 2 minutes ago
+                        // third update
+                        .update
+                            .profile-pic
+                                img(src='images/aprofile.png' alt='Photo')
+                            .message
+                                p
+                                    b Innoc David
+                                    |  added items
+                                small 2 minutes ago
+
+                .item-analytics
+                    h2 Service Analytics
+                    .parked-cars.items
+                        .icon
+                            span.material-icons-sharp directions_car
+                        .right
+                            h2 Parked 
+                        h4.success slots: 30
+                        -let count= 0
+                        each doc in docs
+                            -count += 1
+                        h1=count
+                    .tires.items
+                        .icon
+                            span.material-icons-sharp tire_repair
+                        .right
+                            h2 Tires
+                        h4.danger pieces: 200
+                        -let tires=0
+                        
+                        h1 13
+                    .batteries.items
+                        .icon
+                            span.material-icons-sharp battery_full
+                        .right
+                            h2 Batteries
+                        h4.success pieces: 100
+                        h1 53
+                    .add-items.items
+                        a(href='/vehicle')
+                            h3 Add Vehicle
+    //JS SCRIPT
+    script(src='JS/toggle.js')

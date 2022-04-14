@@ -1,0 +1,21 @@
+extends layout 
+
+
+block content
+    .wrapper
+        .form-title Registration Form
+        form(action='/register', method='POST')
+            .input-field
+                input(type='text', name='username', required='')
+                label(for='username') Username
+            .input-field
+                input(type='password', name='password', required='')
+                label(for='password') Password
+            .input-field
+                input(type='password', name='password2', required='')
+                label(for='password') Confirm password
+            .input-field
+                input#submit(type='submit' value='Register')
+            .text
+                p Already have an account?  
+                a(href='/login') Login now

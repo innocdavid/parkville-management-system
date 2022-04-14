@@ -1,0 +1,49 @@
+extends dashboard 
+
+block content 
+    main
+
+        .customer-details 
+            h2 Tire Repair Details
+            //css styling object...
+            -const btnStyle = {'margin-bottom': '1.5rem', 'border': 'none', 'outline': 'none', 'width': '40%', 'height': '2.8rem', 'background-color': '#fff', 'font-size': '1.2rem', 'border-radius': '.5rem', 'font-weight': '600', 'color': '#7380ec', 'border': '1px solid #7380ec', 'padding': '.6rem'}
+            a(href='/new-tire')
+                input.new-customer(type='submit', value='New Customer', style=btnStyle)
+       
+        -const tableStyle = {'height': '27rem'}
+        .customer-table(style=tableStyle)    
+            table
+                thead
+                    tr
+                        th First Name
+                        th Phone Number
+                        th Plate Number
+                        th Car Model
+                        th Checkin Time
+                        th Tire Fault
+                        th Repair Status
+                        th Cost
+                        th Mechanic
+                        th Action
+                //css styling objects....
+                - const buttonStyle1 = {'height': '2rem', 'display': 'inline-block', 'width': '1.9rem', 'background-color': '#7380ec', 'color': '#fff'}
+                - const buttonStyle2 = {'height': '2rem', 'width': '1.8rem', 'margin-right': '.1rem', 'color': '#fff', 'background-color': '#008000'}
+                tbody
+                    each tire in docs
+
+                        tr
+                            td=tire.firstname
+                            td=tire.telephone
+                            td=tire.platenumber
+                            td=tire.carmodel
+                            td=tire.checkintime
+                            td=tire.tirefault 
+                            td=tire.repairstatus
+                            td=tire.cost
+                            td=tire.mechanic
+                            td=div
+                                a(href='/update-tire/'+tire._id)
+                                    input(type="button", value="Edit"  style=buttonStyle2)
+                                a(href='/print-tire/'+tire._id, target='_blank')
+                                    input(type="button", value="Print" style=buttonStyle1)                 
+    
